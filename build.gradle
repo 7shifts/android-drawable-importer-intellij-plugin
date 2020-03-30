@@ -28,7 +28,7 @@ intellij {
     //type 'IC'              // Use IntelliJ IDEA Community Edition
 
     //pluginName 'BDI-plugin'
-    pluginName 'ADI-hack'
+    pluginName 'Android Drawable Importer'
     //plugins 'android'
     plugins 'android', 'java'
     updateSinceUntilBuild false
@@ -46,7 +46,7 @@ intellij {
 
 //group 'de.mprengemann.intellij.plugin.androidicons'
 
-def majorVersion = '0.7'
+def majorVersion = '1.0'
 version "${Boolean.valueOf(System.getenv('CI')) ? "$majorVersion-${System.getenv('TRAVIS_BUILD_NUMBER')}" : "$majorVersion"}"
 
 repositories {
