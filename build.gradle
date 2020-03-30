@@ -1,12 +1,14 @@
 plugins {
-    id "org.jetbrains.intellij" version "0.1.10"
+    //id "org.jetbrains.intellij" version "0.1.10"
+    // https://mvnrepository.com/artifact/org.jetbrains.intellij/org.jetbrains.intellij.gradle.plugin
+    id "org.jetbrains.intellij" version "0.4.15"
 }
 
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'java'
 
-sourceCompatibility = JavaVersion.VERSION_1_6
-targetCompatibility = JavaVersion.VERSION_1_6
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 sourceSets {
     main {
@@ -18,25 +20,33 @@ sourceSets {
 }
 
 intellij {
-    version project.hasProperty('ideaVersion') ? ideaVersion : 'IC-2016.2.4'
-    pluginName 'android-drawable-importer-intellij-plugin'
-    plugins 'android'
+    //version project.hasProperty('ideaVersion') ? ideaVersion : 'IC-2016.2.4'
+    version project.hasProperty('ideaVersion') ? ideaVersion : 'IC-2019.2.4'
+
+    // Define IntelliJ Platform against which to build the plugin project.
+    //version '192.7142.36'  // Same IntelliJ IDEA version (2019.2.4) for AS 3.6 RC 1
+    //type 'IC'              // Use IntelliJ IDEA Community Edition
+
+    //pluginName 'BDI-plugin'
+    pluginName 'Android Drawable Importer'
+    //plugins 'android'
+    plugins 'android', 'java'
     updateSinceUntilBuild false
     sameSinceUntilBuild false
     downloadSources !Boolean.valueOf(System.getenv('CI'))
 
-    publish {
-        username 'Prengepower'
-        pluginId '7658'
+    /*publish {
+        username 'MPArnold'
+        pluginId 'z7658'
 
         password System.getenv('PLUGIN_PASSWORD')
         channel System.getenv('PLUGIN_CHANNEL') ?: ''
-    }
+    }*/
 }
 
-group 'de.mprengemann.intellij.plugin.androidicons'
+//group 'de.mprengemann.intellij.plugin.androidicons'
 
-def majorVersion = '0.5'
+def majorVersion = '1.0'
 version "${Boolean.valueOf(System.getenv('CI')) ? "$majorVersion-${System.getenv('TRAVIS_BUILD_NUMBER')}" : "$majorVersion"}"
 
 repositories {

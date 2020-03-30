@@ -1,6 +1,13 @@
+## Forker's note
+This fork came about because the original package stopped working somewhere around Android Studio 3.5.  
+I have provided an installation zip [here](https://gpskaihu.nz/ADI-hack/).
+As at 31Jan2020 it is known to run nicely on AS 3.6 RC 1.
+Any [feedback](https://github.com/MPArnold/android-drawable-importer-intellij-plugin/issues/1) would be appreciated. 
+
 # Android Drawable Importer Plugin
 
 ![alt text](src/main/resources/images/menu.png "New menu")
+
 
 This plugin consists of three main features. You can access them by **right-clicking** anywhere, but **not** on a file, inside an **Android (library) module** under **New**.
 
